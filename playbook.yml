@@ -1,0 +1,23 @@
+---
+
+- hosts: all
+
+  vars:
+    brew_formulas:
+      - git
+      - gradle
+      - maven
+      - jenv
+      - docker		# Just CLI
+      - watch
+
+  tasks:
+    - name: Update homebrew
+      community.general.homebrew:
+        update_homebrew: yes
+
+    - name: Installing brew formulas {{ brew_formulas }}
+      community.general.homebrew: 
+        name: "{{ brew_formulas }}"
+        state: present
+      
