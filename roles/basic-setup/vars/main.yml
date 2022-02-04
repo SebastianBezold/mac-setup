@@ -1,0 +1,5 @@
+---
+
+brew_formulas:
+  - git
+  - watch

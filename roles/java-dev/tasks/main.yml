@@ -1,0 +1,12 @@
+---
+
+- name: Install build tools
+  community.general.homebrew:
+    name: maven,gradle
+    state: present
+
+- name: Install jenv 
+  community.general.homebrew:
+    name: jenv
+    state: present
+
