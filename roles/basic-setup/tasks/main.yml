@@ -1,10 +1,20 @@
 ---
 
 - name: Update homebrew
-  community.general.homebrew:
+  homebrew:
     update_homebrew: yes
 
 - name: Installing brew formulas {{ brew_formulas }}
-  community.general.homebrew:
+  homebrew:
     name: "{{ brew_formulas }}"
+    state: present
+
+- name: Install Google Chrome
+  homebrew_cask:
+    name: google-chrome
+    state: present
+
+- name: Install ITerm 2
+  homebrew_cask:
+    name: iterm2
     state: present

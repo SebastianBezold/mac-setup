@@ -42,5 +42,5 @@ else
 fi
 
 echo "Running ansible playbook for further installations"
-ansible-playbook playbook.yml -i hosts
+ansible-playbook playbook.yml -i hosts -v
 
