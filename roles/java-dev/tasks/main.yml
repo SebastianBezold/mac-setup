@@ -1,12 +1,33 @@
 ---
 
 - name: Install build tools
-  community.general.homebrew:
+  homebrew:
     name: maven,gradle
     state: present
 
 - name: Install jenv 
-  community.general.homebrew:
+  homebrew:
     name: jenv
     state: present
 
+- name: Init jenv
+  shell:
+    cmd: eval $(jenv init -)
+
+- name: Install openjdk 11
+  homebrew:
+    name: openjdk@11
+    state: present
+
+- name: Add openjdk 11 to jenv
+  shell:
+    cmd: jenv add $(brew --prefix)/opt/java11/libexec/openjdk.jdk/Contents/Home
+
+- name: Set java 11 as jenv's global default
+  shell:
+    cmd: jenv global 11
+
+- name: Install IntelliJ CE
+  homebrew_cask:
+    name: intellij-idea-ce
+    state: present
