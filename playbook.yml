@@ -4,4 +4,5 @@
 
   roles: 
     - basic-setup
+    - chat-clients
     - { role: java-dev, tags: java-dev }
